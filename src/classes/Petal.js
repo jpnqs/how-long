@@ -71,7 +71,12 @@ class Petal {
         x: event.clientX - this.html.getBoundingClientRect().left,
         y: event.clientY - this.html.getBoundingClientRect().top
     };
+
     blossom.mouth.setState('oh');
+    this._plopSound.play();
+    setTimeout(() => {
+      blossom.mouth.setState('smile');
+    }, 500)
     console.log('drag start');
   }
 
@@ -83,14 +88,12 @@ class Petal {
     }
 
     if (this._attachedToBlossom) {
-      this._plopSound.play();
       blossom.onDetatchPetal();
     }
 
     this._attachedToBlossom = false;
     // set z index so it goes over the blossom
     this.html.style.zIndex = 100;
-    blossom.mouth.setState('smile');
   }
 
   _onDragging(event) {
@@ -118,7 +121,7 @@ class Petal {
     if (!this._isDragging && !this._attachedToBlossom) {
       this._fall();
     } else {
-        this._idle();
+      this._idle();
     }
   }
 
