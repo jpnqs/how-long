@@ -98,6 +98,8 @@ class Petal {
       return;
     }
 
+    this.html.style.zIndex = 100;
+
     if (event instanceof TouchEvent) {
         event = event.touches[0];
     }

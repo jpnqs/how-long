@@ -29,7 +29,7 @@ const differenceStartEnd = dateEnd.getTime() - dateStart.getTime();
 const startEndDays = Math.ceil(differenceStartEnd / (1000 * 3600 * 24));
 
 // set #till date output from endDate
-document.getElementById('till').innerHTML = 'Till ' + dateEnd.toLocaleDateString('DE');
+document.getElementById('till').innerHTML = 'till ' + dateEnd.toLocaleDateString('DE');
 
 const blossom = new Blossom();
 
