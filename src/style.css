@@ -113,6 +113,7 @@ input[type="date"] {
     border-top: none;
     border-left: none;
     border-right: none;
+
 }
 
 input {
@@ -192,18 +193,20 @@ a {
 
 
 .sun { 
+    animation-duration: 1s;
     position: absolute;
       top:0;
       left:0;
       right:0;
       bottom:0;
       margin: auto;  
-      width:70px;
-      height:70px;
+      width:140px;
+      height:140px;
       border-radius:50%;	
       background:white;
-      opacity:0.9;			
-      box-shadow: 0px 0px 40px 15px white;  
+      /*opacity:0.9;			*/
+      opacity: 0;
+      box-shadow: 0px 0px 80px 30px white;  
   }
   
   .ray_box {
@@ -213,14 +216,14 @@ a {
       left:0;
       right:0;
       bottom:0;	
-    width:70px;  
+    width:140px;  
     -webkit-animation: ray_anim 120s linear infinite;
     animation: ray_anim 120s linear infinite;
   }
   .ray {  
       background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
           background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
-      margin-left:10px;
+      margin-left:20px;
       border-radius:80% 80% 0 0;
       position:absolute;
       opacity:0.1;

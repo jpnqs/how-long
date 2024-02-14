@@ -53,6 +53,8 @@ class Blossom {
 
         // activate sun
         document.getElementById('sun').style.display = 'block';
+        // set sun opacity to 0.9
+        document.getElementById('sun').style.opacity = 0.9;
 
         const jsConfetti = new JSConfetti()
 
@@ -60,7 +62,7 @@ class Blossom {
             emojis: ['❤️', '💗', '💕', '💖'],
             emojiSize: 120,
             confettiRadius: 10,
-            confettiNumber: 100,
+            confettiNumber: 20,
         }).then(() => {
             jsConfetti.clearCanvas();
             document.getElementsByTagName('canvas')[0].remove();
