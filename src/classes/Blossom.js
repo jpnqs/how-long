@@ -17,6 +17,8 @@ class Blossom {
         this.height = 200;
         this.width = 200;
         
+        this.totalDays = 0;
+
         // add blossom_face svg to the blossom
         const blossomFace = document.createElement('img');
         blossomFace.src = 'assets/blossom_face.svg';
@@ -40,19 +42,56 @@ class Blossom {
     onDetatchPetal() {  
         this._petalCount -= 1;
 
-this.updateDays();
+        this.updateDays();
         if (this._petalCount === 0) {
-            alert('Game Over!')
+            this.confetti();
+            //alert('Game Over!')
         }
+    }
+
+    confetti() {
+
+        // activate sun
+        document.getElementById('sun').style.display = 'block';
+
+        const jsConfetti = new JSConfetti()
+
+        jsConfetti.addConfetti({
+            emojis: ['❤️', '💗', '💕', '💖'],
+            emojiSize: 120,
+            confettiRadius: 10,
+            confettiNumber: 100,
+        }).then(() => {
+            jsConfetti.clearCanvas();
+            document.getElementsByTagName('canvas')[0].remove();
+        });
+
     }
 
     updateDays() {
         
+        this.determineMouthState(this._petalCount);
+
         if (this._petalCount == 1) {
             document.getElementById('days').innerHTML = this._petalCount + ' Day left';
         }else {
             document.getElementById('days').innerHTML = this._petalCount + ' Days left';
 
+        }
+    }
+
+    determineMouthState(days) {
+        // calculate how many % is done this.totalDays = 100% days = x%
+        const percentage = 100 - ( 100 / this.totalDays * days );
+        // if percentage is less than 10% -> sad
+        if (percentage < 10) {
+            this.mouth.setDefaultState('sad');
+        } else if (percentage < 30) {
+            this.mouth.setDefaultState('neutral');
+        } else if (percentage < 50) {
+            this.mouth.setDefaultState('slightSmile');
+        } else {
+            this.mouth.setDefaultState('smile');
         }
     }
 
@@ -63,10 +102,15 @@ this.updateDays();
 
     createPetals(countTotal, countAvailable) {
 
+        this.totalDays = countTotal;
         this._petalCount = countAvailable;
 
         this.updateDays();
 
+        if (countAvailable === 0) {
+            this.confetti();
+            return;
+        }
 
         // create countAvailable petals and place them circularly around the blossom
         // countTotal is used to calculate the space between each petal

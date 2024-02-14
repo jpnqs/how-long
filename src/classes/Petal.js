@@ -91,7 +91,13 @@ class Petal {
     blossom.mouth.setState('oh');
     this._plopSound.play();
     setTimeout(() => {
-      blossom.mouth.setState('smile');
+      if (blossom.mouth.defaultState !== 'smile') {
+        blossom.mouth.setState('slightSmile');
+        setTimeout(() => {
+          blossom.mouth.backToDefaultState();
+        }, 750);
+      }
+
     }, 500)
     console.log('drag start');
   }
