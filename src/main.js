@@ -7,6 +7,9 @@ const dates = hash.split('-');
 // read title from hash
 var title = hash.split('/').pop();
 
+// url decode title
+title = decodeURIComponent(title);
+
 
 // date given in the format YYYYMMDD perform substring read
 const year = dates[0].substring(0, 4);
