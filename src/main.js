@@ -4,6 +4,10 @@ const hash = window.location.hash.replace(/^#/, '');
 
 const dates = hash.split('-');
 
+// read title from hash
+var title = hash.split('/').pop();
+
+
 // date given in the format YYYYMMDD perform substring read
 const year = dates[0].substring(0, 4);
 const month = dates[0].substring(4, 6);
@@ -29,7 +33,7 @@ const differenceStartEnd = dateEnd.getTime() - dateStart.getTime();
 const startEndDays = Math.ceil(differenceStartEnd / (1000 * 3600 * 24));
 
 // set #till date output from endDate
-document.getElementById('till').innerHTML = 'till ' + dateEnd.toLocaleDateString('DE');
+document.getElementById('till').innerHTML = 'till ' + title || dateEnd.toLocaleDateString('DE');
 
 const blossom = new Blossom();
 

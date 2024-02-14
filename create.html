@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="create-container">
+        <div>
+        <!-- label for date picker -->
+        <label for="date" >Date♥️</label><br>
+        <!-- date picker -->
+            <input oninput="onCreateLink()" type="date" name="date" id="date"><br>
+        <!-- label for title input -->
+        <br>
+        <br>
+        <label for="title">Title</label><br>
+        <!-- title input -->
+        <input type="text" oninput="onCreateLink()" name="title" id="title">
+        <br><br>
+        <div id="output-container">
+            <br>
+
+            <!-- output input field -->
+            <a href="" name="output" id="output"></a>
+            <br>
+            <br>
+
+            <!-- two buttons one for copy the output one for directly redirect to the generated url -->
+            <button id="copy" onclick="onCopyLink()">Copy</button>
+            <button id="copy" onclick="onShareLink()">Share</button>
+
+            <!-- <button id="redirect" onclick="onFollowLink()">Open</button> -->
+
+        </div>
+    </div>
+    </div>
+    <script src="src/create.js"></script>
+</body>
+</html>
