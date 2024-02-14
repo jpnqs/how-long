@@ -56,7 +56,6 @@ class Blossom {
         // set sun opacity to 0.9
         document.getElementById('sun').style.opacity = 0.9;
 
-        const jsConfetti = new JSConfetti()
 
         jsConfetti.addConfetti({
             emojis: ['❤️', '💗', '💕', '💖'],

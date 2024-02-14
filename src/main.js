@@ -6,6 +6,7 @@ if (hash.match(/\d{8}-\d{8}\/.*/) === null) {
     // if hash is not valid redirect to create page
     window.location.href = 'create.html';
 }
+const jsConfetti = new JSConfetti()
 
 const dates = hash.split('-');
 
