@@ -1,5 +1,13 @@
 
 
+var now = new Date(),
+    // minimum date the user can choose, in this case now and in the future
+    minDate = now.toISOString().substring(0,10);
+
+// set min date to date input
+document.getElementById('date').setAttribute('min', minDate);
+
+
 function onCreateLink() {
 
     var dateVal = document.getElementById('date').value;

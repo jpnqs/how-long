@@ -65,12 +65,28 @@ class Petal {
         event = event.touches[0];
     } 
 
+    // drag position is the center of the element at the start of the drag
+    // it
+    this._dragPosition = {
+        x: this.html.offsetWidth / 2,
+        y: this.html.offsetHeight / 2
+    };
+
+
+
+    // var dragPosX = event.clientX - this.html.getBoundingClientRect().left;
+    // var dragPosY = event.clientY - this.html.getBoundingClientRect().top;
+
+    // // adjsut drag position relative to the rotation of the element this._currentRotation
+    // var x = dragPosX * Math.cos(this._currentRotation * Math.PI / 180) - dragPosY * Math.sin(this._currentRotation * Math.PI / 180);
+    // var y = dragPosX * Math.sin(this._currentRotation * Math.PI / 180) + dragPosY * Math.cos(this._currentRotation * Math.PI / 180);
+
     
 
-    this._dragPosition = {
-        x: event.clientX - this.html.getBoundingClientRect().left,
-        y: event.clientY - this.html.getBoundingClientRect().top
-    };
+    // this._dragPosition = {
+    //     x: x,//dragPosX,
+    //     y: yzzdragPosY
+    // };
 
     blossom.mouth.setState('oh');
     this._plopSound.play();
